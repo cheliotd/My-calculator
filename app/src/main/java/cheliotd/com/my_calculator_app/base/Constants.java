@@ -1,4 +1,4 @@
-package cheliotd.com.my_calculator_app.rest;
+package cheliotd.com.my_calculator_app.base;
 
 public class Constants {
 

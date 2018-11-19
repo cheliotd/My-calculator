@@ -6,5 +6,5 @@ public interface MainView extends Serializable {
 
     void addCalculatorFragment();
 
-    void addCurrencyFragment();
+    void addCurrencyFragment(double amount);
 }

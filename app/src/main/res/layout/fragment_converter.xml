@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Converter.ConverterFragment">
+    tools:context=".Converter.ConverterFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text = "@string/currencyconverter"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"/>
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/amount_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:paddingRight="20dp"
+        android:gravity="right"
+        android:textSize="30sp"
+        />
+
+    <Spinner
+        android:id="@+id/target_currency_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/target_currency_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>

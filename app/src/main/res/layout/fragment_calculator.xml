@@ -7,28 +7,19 @@
     tools:context=".Calculator.CalculatorFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/formula_textview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="bottom|right"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="@dimen/formula_text_size"
-        />
 
     <TextView
         android:id="@+id/result_textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_weight="1"
-        android:gravity="bottom|right"
-        android:paddingRight="5dp"
+        android:gravity="bottom|end"
+        android:paddingEnd="5dp"
         android:textSize="@dimen/result_text_size"
         android:text="@string/zero"
+        android:maxLines="1"
+        android:background="@color/screen_background"
+
         />
 
     <LinearLayout
@@ -36,17 +27,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:weightSum="4"
         >
-        
+
         <Button
             android:id="@+id/currency_button"
             style="@style/calculator_button_style"
-            android:text="@string/currency"/>
+            android:text="@string/currency"
+            android:background="@color/equals_button"/>
 
         <Button
-            android:id="@+id/blank"
+            android:id="@+id/positive_negative_button"
             style="@style/calculator_button_style"
-            android:text=""/>
+            android:text="@string/positive_negative"/>
 
         <Button
             android:id="@+id/square_root_button"
@@ -56,7 +49,8 @@
         <Button
             android:id="@+id/clear_button"
             style="@style/calculator_button_style"
-            android:text="@string/clear"/>
+            android:text="@string/clear"
+            android:background="@color/clear_button"/>
 
     </LinearLayout>
 
@@ -164,7 +158,8 @@
         <Button
             android:id="@+id/equals"
             style="@style/calculator_button_style"
-            android:text="@string/equal_symbol"/>
+            android:text="@string/equal_symbol"
+            android:background="@color/equals_button"/>
 
         <Button
             android:id="@+id/addition_button"

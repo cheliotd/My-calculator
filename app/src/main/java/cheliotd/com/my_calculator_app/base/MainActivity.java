@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import cheliotd.com.my_calculator_app.Calculator.CalculatorFragment;
+import cheliotd.com.my_calculator_app.Converter.ConverterFragment;
 import cheliotd.com.my_calculator_app.R;
 
 public class MainActivity extends AppCompatActivity implements MainView {
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void addCurrencyFragment() {
+    public void addCurrencyFragment(double amount) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.calculator_root, ConverterFragment.newInstance(this))
+                .commit();
     }
 }

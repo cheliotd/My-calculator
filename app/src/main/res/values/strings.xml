@@ -20,6 +20,12 @@
     <string name="equal_symbol">=</string>
     <string name="currency">$</string>
     <string name="decimal">.</string>
+    <string name="positive_negative">+/-</string>
+
+    <string name="currencyconverter">Convert currency: </string>
+
+    <string name="on_network_error">Oops something went wrong! Check your internet connection</string>
+    <string name="on_input_error">Please enter valid number</string>
 
 
 </resources>

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface ConverterView {
 
-    void displaySpinnerData();
+    void loadSpinnerData();
 
     void displayResult(String result);
 

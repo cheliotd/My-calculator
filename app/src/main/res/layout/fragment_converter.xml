@@ -5,47 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Converter.ConverterFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="2">
 
-    <TextView
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text = "@string/currencyconverter"
-        android:layout_marginTop="10dp"
-        android:textSize="25sp"
-        android:gravity="center"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/equals_button">
 
     <EditText
         android:id="@+id/amount_edit_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="0"
-        android:paddingRight="20dp"
+        android:text="0.00"
         android:gravity="right"
+        android:layout_centerInParent="true"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
         android:textSize="30sp"
         android:inputType="numberDecimal"
         />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/clear_button">
+
     <Spinner
         android:id="@+id/target_currency_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"/>
-
-    <Button
-        android:id="@+id/convert_button"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:text="@string/converter_button"/>
+        android:layout_toEndOf="@id/target_currency_amount"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        />
+
 
     <TextView
         android:id="@+id/target_currency_amount"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:text="Amount"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="@color/button_background"
+        android:textSize="30dp"
+        android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

@@ -64,7 +64,7 @@ public class ConverterFragment extends Fragment implements ConverterView {
         ButterKnife.bind(this, view);
         mAmountEditText.setText(getArguments().getString("amount"));
 
-        displaySpinnerData();
+        loadSpinnerData();
         return view;
     }
 
@@ -75,7 +75,7 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
 
     @Override
-    public void displaySpinnerData() {
+    public void loadSpinnerData() {
 
         ArrayAdapter<Currency> adapter = new ArrayAdapter(
                 getActivity(),

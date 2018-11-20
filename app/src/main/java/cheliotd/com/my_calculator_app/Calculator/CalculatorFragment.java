@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -87,7 +88,7 @@ public class CalculatorFragment extends Fragment {
   @OnClick({R.id.zero_button, R.id.one_button, R.id.two_button, R.id.three_button, R.id.four_button,
   R.id.five_button, R.id.six_button, R.id.seven_button, R.id.eight_button, R.id.nine_button, R.id.decimal})
      public void onNumberButtonClicked(Button button){
-        if (result.length() <= 10){
+        if (result.length() <= 12){
             if (result.equals("0")){
                if(!button.getText().toString().equals(".")){
                    result = "";
@@ -98,8 +99,10 @@ public class CalculatorFragment extends Fragment {
                 userInput = true;
             }
         }
+        //TODO handle large inputs
       input();
       updateDisplay();
+
   }
 
   public void chooseOperation(){

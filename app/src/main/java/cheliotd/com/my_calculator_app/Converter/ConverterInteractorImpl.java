@@ -36,7 +36,6 @@ public class ConverterInteractorImpl implements ConverterInteractor {
         });
     }
 
-    @OnClick(R.id.convert_button)
     public String convertCurrency(double amount, Currency targetCurrency) {
         double result = 0.00;
 

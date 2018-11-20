@@ -146,6 +146,12 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/equals"
+            style="@style/calculator_button_style"
+            android:text="@string/equal_symbol"
+            android:background="@color/equals_button"/>
+
+        <Button
             android:id="@+id/zero_button"
             style="@style/calculator_button_style"
             android:text="@string/zero"/>
@@ -156,15 +162,11 @@
             android:text="@string/decimal"/>
 
         <Button
-            android:id="@+id/equals"
-            style="@style/calculator_button_style"
-            android:text="@string/equal_symbol"
-            android:background="@color/equals_button"/>
-
-        <Button
             android:id="@+id/addition_button"
             style="@style/calculator_button_style"
             android:text="@string/addition_symbol"/>
+
+
 
     </LinearLayout>
 

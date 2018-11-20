@@ -6,5 +6,4 @@ public interface ConverterPresenter {
 
     void onItemClick(double quantity, Currency targetCurrency);
 
-    void onInputError();
 }

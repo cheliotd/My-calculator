@@ -2,26 +2,27 @@ package cheliotd.com.my_calculator_app.Converter;
 
 public class Currency {
 
-    private String currencyId;
-    private int currencyRate;
+    private String currencyName;
+    private int exchangeRate;
 
-    public Currency(String currencyId) {
-        this.currencyId = currencyId;
+    public Currency(String currencyName, int exchangeRate) {
+        this.currencyName = currencyName;
+        this.exchangeRate = exchangeRate;
     }
 
-    public String getCurrencyId() {
-        return currencyId;
+    public String getCurrencyName() {
+        return currencyName;
     }
 
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
+    public void setCurrencyName(String currencyName) {
+        this.currencyName = currencyName;
     }
 
-    public int getCurrencyRate() {
-        return currencyRate;
+    public int getExchangeRate() {
+        return exchangeRate;
     }
 
-    public void setCurrencyRate(int currencyRate) {
-        this.currencyRate = currencyRate;
+    public void setExchangeRate(int exchangeRate) {
+        this.exchangeRate = exchangeRate;
     }
 }

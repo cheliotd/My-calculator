@@ -20,17 +20,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 .commit();
     }
 
-    @Override
-    public void addCalculatorFragment() {
-
-
-    }
 
     @Override
-    public void addCurrencyFragment(double amount) {
+    public void addCurrencyFragment(String amount) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.calculator_root, ConverterFragment.newInstance(this))
+                .replace(R.id.calculator_root, ConverterFragment.newInstance(this, amount))
+                .addToBackStack(null)
                 .commit();
     }
 }

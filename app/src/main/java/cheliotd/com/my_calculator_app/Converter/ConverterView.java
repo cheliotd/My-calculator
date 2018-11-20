@@ -4,13 +4,9 @@ import java.util.ArrayList;
 
 public interface ConverterView {
 
-    void displaySpinnerDate(ArrayList<Currency> currencies);
+    void displaySpinnerData();
 
     void displayResult(String result);
-
-    void onNetworkError();
-
-    void onInputError();
 
 
 

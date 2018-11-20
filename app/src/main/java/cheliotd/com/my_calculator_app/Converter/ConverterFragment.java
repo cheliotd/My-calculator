@@ -35,14 +35,17 @@ public class ConverterFragment extends Fragment implements ConverterView {
     @BindView(R.id.target_currency_amount)
     TextView mTargetCurrencyAmount;
 
+    private int currencySelected;
+
     ConverterPresenter presenter;
 
 
-    public static ConverterFragment newInstance(MainView mainView) {
+    public static ConverterFragment newInstance(MainView mainView, String amount) {
 
         Bundle args = new Bundle();
         ConverterFragment mfragment = new ConverterFragment();
         args.putSerializable("main_view", mainView);
+        args.putString("amount", amount);
         mfragment.setArguments(args);
         return mfragment;
     }
@@ -59,34 +62,38 @@ public class ConverterFragment extends Fragment implements ConverterView {
         View view = inflater.inflate(R.layout.fragment_converter, container, false);
 
         ButterKnife.bind(this, view);
+        mAmountEditText.setText(getArguments().getString("amount"));
 
-        //TODO setText amount from calculator
-        //TODO presenter.getData
+        displaySpinnerData();
         return view;
+    }
+
+    @OnItemSelected({R.id.target_currency_spinner})
+    public void spinnerItemSelected(Spinner spinner, int position){
+        currencySelected = position;
     }
 
 
     @Override
-    public void displaySpinnerDate(ArrayList<Currency> currencies) {
+    public void displaySpinnerData() {
+
+        ArrayAdapter<Currency> adapter = new ArrayAdapter(
+                getActivity(),
+                android.R.layout.simple_spinner_item
+
+        );
+
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
+        mTargetCurrencySpinner.setAdapter(adapter);
+
 
     }
-
-    @OnItemSelected(R.id.target_currency_spinner)
-    public void targetSpinnerItemSelected(int position){
-        mTargetCurrencySpinner.setSelection(position);  //TODO check variable on setSelection
-    }
-
 
     @Override
     public void displayResult(String result) {
         mTargetCurrencyAmount.setText(result);
     }
 
-    @Override
-    public void onNetworkError() {
-    }
 
-    @Override
-    public void onInputError() {
-    }
 }

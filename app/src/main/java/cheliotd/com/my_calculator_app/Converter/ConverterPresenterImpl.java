@@ -1,6 +1,8 @@
 package cheliotd.com.my_calculator_app.Converter;
 
-public class ConverterPresenterImpl implements ConverterPresenter {
+import java.util.ArrayList;
+
+public class ConverterPresenterImpl implements ConverterPresenter, ConverterInteractor.OnRatesFinishListener {
 
     private ConverterInteractor interactor;
     private ConverterView view;
@@ -12,7 +14,7 @@ public class ConverterPresenterImpl implements ConverterPresenter {
 
     @Override
     public void getRates() {
-        interactor.getCurrencyRates();
+        interactor.getCurrencyRates(this);
     }
 
     @Override
@@ -22,7 +24,12 @@ public class ConverterPresenterImpl implements ConverterPresenter {
     }
 
     @Override
-    public void onInputError() {
-        view.onInputError();
+    public void onSuccess(ArrayList<Currency> rates) {
+
+    }
+
+    @Override
+    public void onError() {
+
     }
 }

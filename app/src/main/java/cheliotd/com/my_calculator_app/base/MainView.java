@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public interface MainView extends Serializable {
 
-    void addCalculatorFragment();
 
-    void addCurrencyFragment(double amount);
+    void addCurrencyFragment(String amount);
 }

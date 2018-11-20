@@ -37,7 +37,6 @@ public class CalculatorFragment extends Fragment {
     boolean userInput = true;
     boolean isFirstInput = true;
 
-    CalculatorInteractor interactor = new CalculatorInteractor(firstNumber, secondNumber);
 
     MainView mainView;
 
@@ -104,6 +103,8 @@ public class CalculatorFragment extends Fragment {
   }
 
   public void chooseOperation(){
+
+        CalculatorInteractor interactor = new CalculatorInteractor(firstNumber, secondNumber);
 
       switch (operator){
           case "+":
@@ -238,8 +239,8 @@ public class CalculatorFragment extends Fragment {
 
 
     @OnClick(R.id.currency_button)
-        public void callCurrencyFragment(){
-        mainView.addCurrencyFragment(Double.parseDouble(result));
+     public void callCurrencyFragment(){
+        mainView.addCurrencyFragment(result);
     }
 
 

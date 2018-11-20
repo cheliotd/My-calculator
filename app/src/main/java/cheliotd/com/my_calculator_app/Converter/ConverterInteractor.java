@@ -4,9 +4,15 @@ import java.util.ArrayList;
 
 public interface ConverterInteractor {
 
-    ArrayList<Currency> getCurrencyRates();
+    void getCurrencyRates(OnRatesFinishListener listener);
 
     String convertCurrency(double amount, Currency targetCurrency);
+
+    interface OnRatesFinishListener{
+        void onSuccess(ArrayList<Currency> rates);
+
+        void onError();
+    }
 
 
 }

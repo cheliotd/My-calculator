@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface ConverterView {
 
-    void loadSpinnerData();
+    void loadSpinnerData(ArrayList<Currency> currencies);
 
     void displayResult(String result);
 

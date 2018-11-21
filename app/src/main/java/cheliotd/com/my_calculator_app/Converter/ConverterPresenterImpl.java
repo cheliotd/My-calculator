@@ -15,17 +15,17 @@ public class ConverterPresenterImpl implements ConverterPresenter, ConverterInte
     @Override
     public void getRates() {
         interactor.getCurrencyRates(this);
+
     }
 
     @Override
     public void onItemClick(double quantity, Currency targetCurrency) {
-        String result = interactor.convertCurrency(quantity, targetCurrency);
-        view.displayResult(result);
+
     }
 
     @Override
-    public void onSuccess(ArrayList<Currency> rates) {
-
+    public void onSuccess(ArrayList<Currency> currencies) {
+        view.loadSpinnerData(currencies);
     }
 
     @Override

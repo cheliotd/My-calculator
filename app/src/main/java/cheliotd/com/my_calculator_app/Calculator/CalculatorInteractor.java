@@ -13,27 +13,23 @@ public class CalculatorInteractor {
     }
 
     public double addition(){
-        DecimalFormat dFormat = new DecimalFormat("#.#####");
+        DecimalFormat dFormat = new DecimalFormat("#.#######");
         return Double.valueOf(dFormat.format(firstNumber + secondNumber));
     }
 
     public double substraction(){
-        DecimalFormat dFormat = new DecimalFormat("#.#####");
+        DecimalFormat dFormat = new DecimalFormat("#.#######");
         return Double.valueOf(dFormat.format(firstNumber  - secondNumber));
     }
 
     public double multiply(){
-        DecimalFormat dFormat = new DecimalFormat("#.#####");
+        DecimalFormat dFormat = new DecimalFormat("#.#######");
         return Double.valueOf(dFormat.format(firstNumber * secondNumber));
     }
 
     public double division(){
-        DecimalFormat dFormat = new DecimalFormat("#.#####");
+        DecimalFormat dFormat = new DecimalFormat("#.#######");
         return Double.valueOf(dFormat.format(firstNumber / secondNumber));
     }
 
-    public double sqrt(){
-        DecimalFormat dFromat = new DecimalFormat("#.#####");
-        return Double.valueOf(dFromat.format(Math.sqrt(firstNumber)));
-    }
 }

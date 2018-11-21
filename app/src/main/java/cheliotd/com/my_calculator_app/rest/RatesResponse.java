@@ -1,40 +1,22 @@
 package cheliotd.com.my_calculator_app.rest;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
-
-import cheliotd.com.my_calculator_app.Converter.Currency;
-
+import java.util.HashMap;
 
 public class RatesResponse {
 
-    private String base;
-    private String date;
 
-    private ArrayList<Currency> rates = new ArrayList<Currency>();
+    private HashMap<String, String> Result = new HashMap<>();
 
-    public String getBase() {
-        return base;
+
+    public RatesResponse(HashMap<String, String> result) {
+        Result = result;
     }
 
-    public void setBase(String base) {
-        this.base = base;
+    public HashMap<String, String> getResult() {
+        return Result;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public ArrayList<Currency> getRates() {
-        return rates;
-    }
-
-    public void setRates(ArrayList<Currency> rates) {
-        this.rates = rates;
+    public void setResult(HashMap<String, String> result) {
+        Result = result;
     }
 }

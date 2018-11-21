@@ -1,6 +1,7 @@
 package cheliotd.com.my_calculator_app.Converter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ConverterPresenterImpl implements ConverterPresenter, ConverterInteractor.OnRatesFinishListener {
 
@@ -14,17 +15,14 @@ public class ConverterPresenterImpl implements ConverterPresenter, ConverterInte
 
     @Override
     public void getRates() {
-        interactor.getCurrencyRates(this);
+
+     interactor.getCurrencyRates(this);
 
     }
 
-    @Override
-    public void onItemClick(double quantity, Currency targetCurrency) {
-
-    }
 
     @Override
-    public void onSuccess(ArrayList<Currency> currencies) {
+    public void onSuccess(HashMap<String, String> currencies) {
         view.loadSpinnerData(currencies);
     }
 

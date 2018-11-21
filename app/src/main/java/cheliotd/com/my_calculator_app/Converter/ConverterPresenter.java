@@ -6,6 +6,5 @@ public interface ConverterPresenter {
 
     void getRates();
 
-    void onItemClick(double quantity, Currency targetCurrency);
 
 }

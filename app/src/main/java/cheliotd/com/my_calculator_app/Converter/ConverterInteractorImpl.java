@@ -22,11 +22,13 @@ public class ConverterInteractorImpl implements ConverterInteractor {
 
     @Override
     public void getCurrencyRates(final OnRatesFinishListener listener) {
+
         Call<RatesResponse> call = RestClient.call().fetchCurrencyRates();
+
         call.enqueue(new Callback<RatesResponse>() {
             @Override
             public void onResponse(Call<RatesResponse> call, Response<RatesResponse> response) {
-                listener.onSuccess(response.body().getRates());
+               listener.onSuccess(response.body().getResult());
             }
 
             @Override
@@ -36,15 +38,5 @@ public class ConverterInteractorImpl implements ConverterInteractor {
         });
     }
 
-    public String convertCurrency(double amount, Currency targetCurrency) {
-        double result = 0.00;
 
-        result = amount / targetCurrency.getExchangeRate();
-
-        DecimalFormat df = new DecimalFormat("#.####");
-
-        String resultF = Double.toString(result);
-
-        return resultF;
-    }
 }

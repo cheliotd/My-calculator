@@ -98,8 +98,9 @@ public class CalculatorFragment extends Fragment {
                 result += button.getText();
                 userInput = true;
             }
+        }else {
+            Toast.makeText(getContext(), R.string.large_input, Toast.LENGTH_LONG).show();
         }
-        //TODO handle large inputs
       input();
       updateDisplay();
 
@@ -135,7 +136,6 @@ public class CalculatorFragment extends Fragment {
               if (secondNumber == 0){
                   result = "ERROR";
                   updateDisplay();
-                  clear();
                   userInput = false;
               }
               else {
@@ -182,20 +182,23 @@ public class CalculatorFragment extends Fragment {
   }
 
   @OnClick(R.id.square_root_button)
-  public void onSquareRootButton(Button button){
-         DecimalFormat formatDouble = new DecimalFormat("#.###########");
-         result = (formatDouble.format(Math.sqrt(firstNumber)));
-         attachResult();
-         updateDisplay();
-         clear();
-         restore();
-         isFirstInput = true;
-         userInput = false;
+  public void onSquareRootButton(){
+        if (firstNumber > 0 ) {
+            DecimalFormat formatDouble = new DecimalFormat("#.###########");
+            result = (formatDouble.format(Math.sqrt(firstNumber)));
+            attachResult();
+            updateDisplay();
+            clear();
+            restore();
+            isFirstInput = true;
+            userInput = false;
+        }else
+            Toast.makeText(getContext(),R.string.ERROR_callConverter, Toast.LENGTH_LONG).show();
 
   }
 
   @OnClick(R.id.positive_negative_button)
-  public void onInputSignClicked(Button button){
+  public void onInputSignClicked(){
         if (userInput) {
             if (!result.equals("") && !result.equals("0")){
                 if (result.startsWith("-")){
@@ -213,17 +216,16 @@ public class CalculatorFragment extends Fragment {
   }
 
   @OnClick(R.id.equals)
-    public void onEqualsClick(Button button){
+    public void onEqualsClick(){
         if (!operator.equals("")){
             chooseOperation();
             isFirstInput = true;
             userInput = false;
-
         }
   }
 
   @OnClick(R.id.clear_button)
-    public void onClearClicked(Button button){
+    public void onClearClicked(){
         clear();
         updateDisplay();
   }
@@ -242,11 +244,17 @@ public class CalculatorFragment extends Fragment {
 
 
     @OnClick(R.id.currency_button)
-     public void callCurrencyFragment(){
-        mainView.addCurrencyFragment(result);
+     public void callCurrencyFragment() {
+        if (result == "ERROR") {
+            Toast.makeText(getContext(), R.string.ERROR_callConverter, Toast.LENGTH_LONG).show();
+        } else {
+            if (result == "0") {
+                mainView.addCurrencyFragment(Double.toString(pending));
+            } else {
+                mainView.addCurrencyFragment(result);
+            }
+
+        }
     }
-
-
-
 
 }

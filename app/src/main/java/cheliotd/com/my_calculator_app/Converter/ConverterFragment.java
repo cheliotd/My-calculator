@@ -10,13 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnItemSelected;
 import cheliotd.com.my_calculator_app.R;
 import cheliotd.com.my_calculator_app.base.MainView;
 
@@ -29,13 +28,14 @@ public class ConverterFragment extends Fragment implements ConverterView {
     @BindView(R.id.amount_edit_text)
     EditText mAmountEditText;
 
+    @BindView(R.id.from_currency_spinner)
+    Spinner mFromCurrencySpinner;
+
     @BindView(R.id.target_currency_spinner)
     Spinner mTargetCurrencySpinner;
 
     @BindView(R.id.target_currency_amount)
-    TextView mTargetCurrencyAmount;
-
-    private int currencySelected;
+    TextView convertedResult;
 
     ConverterPresenter presenter;
 
@@ -69,17 +69,18 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
 
     @Override
-    public void loadSpinnerData(ArrayList<Currency> currencies) {
+    public void loadSpinnerData(HashMap<String, String> currencies) {
 
-        final ArrayList<Currency> rates = new ArrayList<>();
-        ArrayAdapter<Currency> adapter = new ArrayAdapter<>(getContext(),
-                R.layout.support_simple_spinner_dropdown_item, rates);
-        mTargetCurrencySpinner.setAdapter(adapter);
+        ArrayAdapter<Currency> rates = new ArrayAdapter(
+                getContext(),
+                android.R.layout.simple_spinner_item,
+                currencies.get()
+        );
     }
 
     @Override
     public void displayResult(String result) {
-        mTargetCurrencyAmount.setText(result);
+        convertedResult.setText(result);
     }
 
 

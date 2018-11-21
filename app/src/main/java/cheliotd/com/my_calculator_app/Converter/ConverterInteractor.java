@@ -1,15 +1,17 @@
 package cheliotd.com.my_calculator_app.Converter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface ConverterInteractor {
 
     void getCurrencyRates(OnRatesFinishListener listener);
 
-    String convertCurrency(double amount, Currency targetCurrency);
 
     interface OnRatesFinishListener{
-        void onSuccess(ArrayList<Currency> rates);
+
+        void onSuccess(HashMap<String, String> currencies);
 
         void onError();
     }

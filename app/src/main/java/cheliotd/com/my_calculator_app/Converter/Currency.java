@@ -2,27 +2,48 @@ package cheliotd.com.my_calculator_app.Converter;
 
 public class Currency {
 
-    private String currencyName;
-    private int exchangeRate;
+    private boolean success;
+    private String baseCurrency;
+    private String date;
+    private String rates;
 
-    public Currency(String currencyName, int exchangeRate) {
-        this.currencyName = currencyName;
-        this.exchangeRate = exchangeRate;
+    public Currency(boolean success, String baseCurrency, String date, String rates) {
+        this.success = success;
+        this.baseCurrency = baseCurrency;
+        this.date = date;
+        this.rates = rates;
     }
 
-    public String getCurrencyName() {
-        return currencyName;
+
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setCurrencyName(String currencyName) {
-        this.currencyName = currencyName;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
-    public int getExchangeRate() {
-        return exchangeRate;
+    public String getBaseCurrency() {
+        return baseCurrency;
     }
 
-    public void setExchangeRate(int exchangeRate) {
-        this.exchangeRate = exchangeRate;
+    public void setBaseCurrency(String baseCurrency) {
+        this.baseCurrency = baseCurrency;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getRates() {
+        return rates;
+    }
+
+    public void setRates(String rates) {
+        this.rates = rates;
     }
 }

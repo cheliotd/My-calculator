@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public interface ConverterInteractor {
 
-    void getCurrencyRates(OnRatesFinishListener listener, String fromCurrency);
+    void getCurrencyRates(OnRatesFinishListener listener);
 
     interface OnRatesFinishListener{
 

@@ -8,6 +8,8 @@ import retrofit2.http.Query;
 
 public interface RestAPI {
 
-    @GET("/latest")
-    Call<RatesResponse> fetchCurrencyRates(@Query("base") String fromCurrency);
+    @GET("?access_key=947e11747b19e774d48e75ab606ab6c0&base=USD")
+    Call<RatesResponse> fetchCurrencyRates();
 }
+
+

@@ -22,9 +22,9 @@ public class ConverterInteractorImpl implements ConverterInteractor {
 
 
     @Override
-    public void getCurrencyRates(final OnRatesFinishListener listener, String fromCurrency) {
+    public void getCurrencyRates(final OnRatesFinishListener listener) {
 
-        Call<RatesResponse> call = RestClient.call().fetchCurrencyRates(fromCurrency);
+        Call<RatesResponse> call = RestClient.call().fetchCurrencyRates();
 
         call.enqueue(new Callback<RatesResponse>() {
             @Override

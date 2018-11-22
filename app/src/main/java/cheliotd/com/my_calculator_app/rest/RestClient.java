@@ -29,7 +29,7 @@ public class RestClient {
 
 
     final Retrofit retrorift = new Retrofit.Builder()
-            .baseUrl("https://data.fixer.io/api")
+            .baseUrl("http://data.fixer.io/api/latest")
             .client(mOkHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build();

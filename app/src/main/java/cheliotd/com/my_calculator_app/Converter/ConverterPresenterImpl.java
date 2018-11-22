@@ -15,7 +15,7 @@ public class ConverterPresenterImpl implements ConverterPresenter, ConverterInte
 
     @Override
     public void getRates(String fromCurrency) {
-        interactor.getCurrencyRates(this, fromCurrency);
+        interactor.getCurrencyRates(this);
     }
 
     @Override

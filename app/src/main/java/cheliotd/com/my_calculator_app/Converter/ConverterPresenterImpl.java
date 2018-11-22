@@ -14,20 +14,19 @@ public class ConverterPresenterImpl implements ConverterPresenter, ConverterInte
     }
 
     @Override
-    public void getRates() {
-
-     interactor.getCurrencyRates(this);
-
+    public void getRates(String fromCurrency) {
+        interactor.getCurrencyRates(this, fromCurrency);
     }
 
-
     @Override
-    public void onSuccess(HashMap<String, String> currencies) {
-        view.loadSpinnerData(currencies);
+    public void onSuccess(HashMap<String, String> rates) {
+        view.loadSpinnerData(rates);
     }
 
     @Override
     public void onError() {
 
     }
+
+
 }

@@ -69,13 +69,8 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
 
     @Override
-    public void loadSpinnerData(HashMap<String, String> currencies) {
+    public void loadSpinnerData(HashMap<String, String> rates) {
 
-        ArrayAdapter<Currency> rates = new ArrayAdapter(
-                getContext(),
-                android.R.layout.simple_spinner_item,
-                currencies.get()
-        );
     }
 
     @Override

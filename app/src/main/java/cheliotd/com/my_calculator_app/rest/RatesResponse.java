@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class RatesResponse {
 
 
-    private HashMap<String, String> Result = new HashMap<>();
+    private HashMap<String, String> Result;
 
 
     public RatesResponse(HashMap<String, String> result) {

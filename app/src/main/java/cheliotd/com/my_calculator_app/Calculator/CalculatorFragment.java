@@ -255,6 +255,7 @@ public class CalculatorFragment extends Fragment {
             }
 
         }
+       clear();
     }
 
 }

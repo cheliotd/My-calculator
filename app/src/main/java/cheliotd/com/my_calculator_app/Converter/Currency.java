@@ -1,26 +1,17 @@
 package cheliotd.com.my_calculator_app.Converter;
 
+import java.util.HashMap;
+
 public class Currency {
 
-    private boolean success;
     private String baseCurrency;
     private String date;
-    private String rates;
+    private HashMap<String, String> rates;
 
-    public Currency(boolean success, String baseCurrency, String date, String rates) {
-        this.success = success;
+    public Currency(String baseCurrency, String date, HashMap<String, String> rates) {
         this.baseCurrency = baseCurrency;
         this.date = date;
         this.rates = rates;
-    }
-
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
     }
 
     public String getBaseCurrency() {
@@ -39,11 +30,11 @@ public class Currency {
         this.date = date;
     }
 
-    public String getRates() {
+    public HashMap<String, String> getRates() {
         return rates;
     }
 
-    public void setRates(String rates) {
+    public void setRates(HashMap<String, String> rates) {
         this.rates = rates;
     }
 }

@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.calculator_root, CalculatorFragment.newInstance(this))
+                .addToBackStack(null)
                 .commit();
     }
 

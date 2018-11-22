@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public interface ConverterView {
 
-    void loadSpinnerData(HashMap<String, String> currencies);
+    void loadSpinnerData(HashMap<String, String> rates);
 
     void displayResult(String result);
 

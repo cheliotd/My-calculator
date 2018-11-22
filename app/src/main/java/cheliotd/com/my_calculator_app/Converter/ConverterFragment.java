@@ -11,11 +11,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemSelected;
 import cheliotd.com.my_calculator_app.R;
 import cheliotd.com.my_calculator_app.base.MainView;
 
@@ -36,6 +38,8 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
     @BindView(R.id.target_currency_amount)
     TextView convertedResult;
+
+    private int targetCurrency;
 
     ConverterPresenter presenter;
 
@@ -69,8 +73,19 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
 
     @Override
-    public void loadSpinnerData(HashMap<String, String> rates) {
+    public void loadSpinnerData(ArrayList<String> currencies) {
 
+        ArrayAdapter<String> countries = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_item,
+                currencies
+        );
+        mTargetCurrencySpinner.setAdapter(countries);
+    }
+
+    @OnItemSelected(R.id.target_currency_spinner)
+    public void currencySelected(int position){
+        targetCurrency = position;
     }
 
     @Override

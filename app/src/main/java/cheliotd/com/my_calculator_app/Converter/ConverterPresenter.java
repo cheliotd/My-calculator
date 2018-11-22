@@ -4,6 +4,6 @@ import java.util.ArrayList;
 
 public interface ConverterPresenter {
 
-    void getRates(String fromCurrency);
+    void getRates();
 
 }

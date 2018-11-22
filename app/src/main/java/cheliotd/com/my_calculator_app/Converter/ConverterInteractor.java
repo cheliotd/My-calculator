@@ -1,6 +1,7 @@
 package cheliotd.com.my_calculator_app.Converter;
 
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,7 +11,7 @@ public interface ConverterInteractor {
 
     interface OnRatesFinishListener{
 
-        void onSuccess(HashMap<String, String> rates);
+        void onSuccess(HashMap<String, BigDecimal> rates);
 
         void onError();
     }

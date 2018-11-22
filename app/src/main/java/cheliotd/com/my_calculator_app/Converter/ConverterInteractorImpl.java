@@ -1,5 +1,6 @@
 package cheliotd.com.my_calculator_app.Converter;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +21,6 @@ public class ConverterInteractorImpl implements ConverterInteractor {
         this.response = response;
     }
 
-
     @Override
     public void getCurrencyRates(final OnRatesFinishListener listener) {
 
@@ -29,7 +29,7 @@ public class ConverterInteractorImpl implements ConverterInteractor {
         call.enqueue(new Callback<RatesResponse>() {
             @Override
             public void onResponse(Call<RatesResponse> call, Response<RatesResponse> response) {
-                HashMap<String, String> rates = response.body().getResult();
+                HashMap<String, BigDecimal> rates = response.body().getResult();
                 listener.onSuccess(rates);
             }
 

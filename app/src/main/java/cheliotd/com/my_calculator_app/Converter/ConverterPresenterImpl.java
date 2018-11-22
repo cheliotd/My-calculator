@@ -1,5 +1,6 @@
 package cheliotd.com.my_calculator_app.Converter;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,13 +15,16 @@ public class ConverterPresenterImpl implements ConverterPresenter, ConverterInte
     }
 
     @Override
-    public void getRates(String fromCurrency) {
+    public void getRates() {
         interactor.getCurrencyRates(this);
     }
 
     @Override
-    public void onSuccess(HashMap<String, String> rates) {
-        view.loadSpinnerData(rates);
+    public void onSuccess(HashMap<String, BigDecimal> rates) {
+
+        ArrayList<String> currencies = new ArrayList<>(rates.keySet());
+
+        view.loadSpinnerData(currencies);
     }
 
     @Override

@@ -5,20 +5,20 @@ import java.util.HashMap;
 
 public class Currency {
 
-    private String currency;
+    private String country;
     private BigDecimal rate;
 
-    public Currency(String currency, BigDecimal rate) {
-        this.currency = currency;
+    public Currency(String country, BigDecimal rate) {
+        this.country = country;
         this.rate = rate;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public BigDecimal getRate() {

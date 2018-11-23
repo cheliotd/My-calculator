@@ -13,13 +13,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ConverterInteractorImpl implements ConverterInteractor {
-
-    private RatesResponse response;
-
-    public ConverterInteractorImpl(RatesResponse response) {
-        this.response = response;
-    }
+public class  ConverterInteractorImpl implements ConverterInteractor {
 
     @Override
     public void getCurrencyRates(final OnRatesFinishListener listener) {
@@ -29,8 +23,9 @@ public class ConverterInteractorImpl implements ConverterInteractor {
         call.enqueue(new Callback<RatesResponse>() {
             @Override
             public void onResponse(Call<RatesResponse> call, Response<RatesResponse> response) {
-                HashMap<String, BigDecimal> rates = response.body().getResult();
-                listener.onSuccess(rates);
+
+
+                listener.onSuccess(response.body().getResult());
             }
 
             @Override

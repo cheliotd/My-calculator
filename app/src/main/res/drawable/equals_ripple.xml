@@ -3,11 +3,11 @@
      android:color="?android:colorControlHighlight">
     <item android:id="@android:id/mask">
         <shape android:shape="rectangle">
-            <solid android:color="@color/clear_button" />
+            <solid android:color="@color/equals_button" />
         </shape>
 
     </item>
     <item>
-        <color android:color="@color/clear_button" />
+        <color android:color="@color/equals_button" />
     </item>
 </ripple>

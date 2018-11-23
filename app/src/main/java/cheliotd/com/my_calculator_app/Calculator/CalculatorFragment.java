@@ -33,7 +33,7 @@ public class CalculatorFragment extends Fragment {
 
     double firstNumber = 0;
     double secondNumber = 0;
-    double pending = 0;
+    double pendingNumber = 0;
 
     boolean userInput = true;
     boolean isFirstInput = true;
@@ -69,14 +69,14 @@ public class CalculatorFragment extends Fragment {
 
 
   private void attachResult(){
-        pending = Double.parseDouble(result);
+        pendingNumber = Double.parseDouble(result);
   }
 
   private void restore(){
-        firstNumber = pending;
+        firstNumber = pendingNumber;
   }
 
-  private void input(){
+  private void handleInput(){
         if (isFirstInput){
             firstNumber = Double.parseDouble(result);
         }
@@ -101,14 +101,14 @@ public class CalculatorFragment extends Fragment {
         }else {
             Toast.makeText(getContext(), R.string.large_input, Toast.LENGTH_LONG).show();
         }
-      input();
+      handleInput();
       updateDisplay();
 
   }
 
   public void chooseOperation(){
 
-        CalculatorInteractor interactor = new CalculatorInteractor(firstNumber, secondNumber);
+        calculations interactor = new calculations(firstNumber, secondNumber);
 
       switch (operator){
           case "+":
@@ -156,7 +156,7 @@ public class CalculatorFragment extends Fragment {
 
         if (secondNumber!= 0 && !operator.equals("")){
             chooseOperation();
-            firstNumber = pending;
+            firstNumber = pendingNumber;
             operator = button.getText().toString();
             result = "Ans " + button.getText().toString();
             updateDisplay();
@@ -204,12 +204,12 @@ public class CalculatorFragment extends Fragment {
                 if (result.startsWith("-")){
                     result = result.substring(1, result.length());
                     updateDisplay();
-                    input();
+                    handleInput();
                 }
                 else {
                     result = "-" + result;
                     updateDisplay();
-                    input();
+                    handleInput();
                 }
             }
         }
@@ -249,7 +249,7 @@ public class CalculatorFragment extends Fragment {
             Toast.makeText(getContext(), R.string.ERROR_callConverter, Toast.LENGTH_LONG).show();
         } else {
             if (result == "0") {
-                mainView.addCurrencyFragment(Double.toString(pending));
+                mainView.addCurrencyFragment(Double.toString(pendingNumber));
             } else {
                 mainView.addCurrencyFragment(result);
             }

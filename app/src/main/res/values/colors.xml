@@ -9,4 +9,5 @@
     <color name="clear_button">#f44336</color>
     <color name="equals_button">#3F51B5</color>
     <color name="button_text">#FAFAFA</color>
+    <color name="spinner">#B0BEC5</color>
 </resources>

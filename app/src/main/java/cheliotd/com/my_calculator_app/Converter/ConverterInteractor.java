@@ -11,7 +11,7 @@ public interface ConverterInteractor {
 
     interface OnRatesFinishListener{
 
-        void onSuccess(HashMap<String, BigDecimal> rates);
+        void onSuccess(HashMap<String, BigDecimal> currencies);
 
         void onError();
     }

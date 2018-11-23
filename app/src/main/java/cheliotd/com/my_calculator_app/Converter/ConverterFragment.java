@@ -30,9 +30,6 @@ public class ConverterFragment extends Fragment implements ConverterView {
     @BindView(R.id.amount_edit_text)
     EditText mAmountEditText;
 
-    @BindView(R.id.from_currency_spinner)
-    Spinner mFromCurrencySpinner;
-
     @BindView(R.id.target_currency_spinner)
     Spinner mTargetCurrencySpinner;
 
@@ -68,24 +65,38 @@ public class ConverterFragment extends Fragment implements ConverterView {
         ButterKnife.bind(this, view);
         mAmountEditText.setText(getArguments().getString("amount"));
 
+        presenter = new ConverterPresenterImpl(this);
+        presenter.getRates();
+
         return view;
     }
 
 
     @Override
-    public void loadSpinnerData(ArrayList<String> currencies) {
+    public void loadSpinnerData(final ArrayList<String> currencies) {
 
-        ArrayAdapter<String> countries = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_spinner_item,
-                currencies
-        );
-        mTargetCurrencySpinner.setAdapter(countries);
+        getActivity().runOnUiThread(new Runnable() {
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                    getContext(),
+                    android.R.layout.simple_spinner_item,
+                    currencies
+            );
+
+            @Override
+            public void run() {
+                adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                mTargetCurrencySpinner.setAdapter(adapter);
+            }
+        });
+
+
     }
 
     @OnItemSelected(R.id.target_currency_spinner)
     public void currencySelected(int position){
         targetCurrency = position;
+
     }
 
     @Override

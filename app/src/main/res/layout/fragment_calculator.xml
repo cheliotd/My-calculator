@@ -34,7 +34,7 @@
             android:id="@+id/currency_button"
             style="@style/calculator_button_style"
             android:text="@string/currency"
-            android:background="@drawable/primary_ripple"/>
+            android:background="@drawable/equals_ripple"/>
 
         <Button
             android:id="@+id/positive_negative_button"
@@ -50,7 +50,7 @@
             android:id="@+id/clear_button"
             style="@style/calculator_button_style"
             android:text="@string/clear"
-            android:background="@drawable/primary_ripple"/>
+            android:background="@drawable/clear_ripple"/>
 
     </LinearLayout>
 
@@ -149,7 +149,7 @@
             android:id="@+id/equals"
             style="@style/calculator_button_style"
             android:text="@string/equal_symbol"
-            android:background="@drawable/primary_ripple"/>
+            android:background="@drawable/equals_ripple"/>
 
         <Button
             android:id="@+id/zero_button"

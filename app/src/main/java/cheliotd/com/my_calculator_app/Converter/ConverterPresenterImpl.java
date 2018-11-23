@@ -9,8 +9,8 @@ public class ConverterPresenterImpl implements ConverterPresenter, ConverterInte
     private ConverterInteractor interactor;
     private ConverterView view;
 
-    public ConverterPresenterImpl(ConverterInteractor interactor, ConverterView view) {
-        this.interactor = interactor;
+    public ConverterPresenterImpl(ConverterView view) {
+        interactor = new ConverterInteractorImpl();
         this.view = view;
     }
 

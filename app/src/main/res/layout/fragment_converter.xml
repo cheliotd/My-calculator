@@ -16,6 +16,15 @@
         android:layout_weight="1"
         android:background="@color/equals_button">
 
+        <TextView
+            android:id="@+id/converter_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currencyconverter"
+            android:layout_centerHorizontal="true"
+            android:textSize="40sp"
+            />
+
 
 
     <EditText
@@ -32,22 +41,34 @@
         android:inputType="numberDecimal"
         />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_toEndOf="@id/amount_edit_text"
+            android:layout_centerVertical="true"
+            android:text="@string/euro_sign"
+            android:textSize="30sp"
+            />
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/button_text">
+        android:background="@color/button_text"
+        >
 
-    <android.support.v7.widget.AppCompatSpinner
+    <Spinner
         android:id="@+id/target_currency_spinner"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@id/target_currency_amount"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="10dp"
+        android:layout_height="40dp"
+        android:layout_above="@id/target_currency_amount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/spinner"
+        android:popupBackground="@color/spinner"
         />
 
 
@@ -60,6 +81,7 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:textColor="@color/button_background"
+        android:background="@color/button_text"
         android:textSize="30dp"
         android:layout_centerInParent="true"/>
 

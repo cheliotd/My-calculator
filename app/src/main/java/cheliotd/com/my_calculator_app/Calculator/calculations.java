@@ -2,12 +2,12 @@ package cheliotd.com.my_calculator_app.Calculator;
 
 import java.text.DecimalFormat;
 
-public class CalculatorInteractor {
+public class calculations {
 
     private double firstNumber;
     private double secondNumber;
 
-    public CalculatorInteractor(double firstNumber, double secondNumber) {
+    public calculations(double firstNumber, double secondNumber) {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
     }

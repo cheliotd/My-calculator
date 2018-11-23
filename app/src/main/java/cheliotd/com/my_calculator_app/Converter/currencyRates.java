@@ -1,31 +1,30 @@
 package cheliotd.com.my_calculator_app.Converter;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 
-public class Currency {
+public class currencyRates {
 
-    private String country;
-    private BigDecimal rate;
+    private String currency;
+    private Double rate;
 
-    public Currency(String country, BigDecimal rate) {
-        this.country = country;
+    public currencyRates(String currency, Double rate) {
+        this.currency = currency;
         this.rate = rate;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public BigDecimal getRate() {
+    public Double getRate() {
         return rate;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(Double rate) {
         this.rate = rate;
     }
 }

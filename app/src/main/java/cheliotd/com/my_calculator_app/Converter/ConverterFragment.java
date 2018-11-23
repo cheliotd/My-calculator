@@ -6,12 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -73,14 +74,16 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
 
     @Override
-    public void loadSpinnerData(final ArrayList<String> currencies) {
+    public void loadSpinnerData(final HashMap<String, Double> currencies) {
+
+        final ArrayList<String> countries = new ArrayList<>(currencies.keySet());
 
         getActivity().runOnUiThread(new Runnable() {
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+            ArrayAdapter<String> adapter = new ArrayAdapter(
                     getContext(),
                     android.R.layout.simple_spinner_item,
-                    currencies
+                    countries
             );
 
             @Override
@@ -90,18 +93,33 @@ public class ConverterFragment extends Fragment implements ConverterView {
             }
         });
 
+        mTargetCurrencySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String targetCurrency = String.valueOf(parent.getItemAtPosition(position));
+                String amount= mAmountEditText.getText().toString();
+                calculateResult(amount, targetCurrency);
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
-    @OnItemSelected(R.id.target_currency_spinner)
-    public void currencySelected(int position){
-        targetCurrency = position;
-
-    }
 
     @Override
-    public void displayResult(String result) {
-        convertedResult.setText(result);
+    public void calculateResult(String amount, String targetCurrency) {
+
+        double finalAmount = presenter.calculateAmount(amount, targetCurrency);
+        convertedResult.setText(String.valueOf(finalAmount));
+    }
+
+
+    @Override
+    public void showErrorMessage() {
+        Toast.makeText(getContext(), R.string.on_network_error, Toast.LENGTH_LONG).show();
     }
 
 

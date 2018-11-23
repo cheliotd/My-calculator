@@ -1,23 +1,21 @@
 package cheliotd.com.my_calculator_app.rest;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
+import cheliotd.com.my_calculator_app.Converter.currencyRates;
 
 public class RatesResponse {
 
 
-    private HashMap<String, BigDecimal> Result;
+    private currencyRates Result;
 
-
-    public RatesResponse(HashMap<String, BigDecimal> result) {
+    public RatesResponse(currencyRates result) {
         Result = result;
     }
 
-    public HashMap<String, BigDecimal> getResult() {
+    public currencyRates getResult() {
         return Result;
     }
 
-    public void setResult(HashMap<String, BigDecimal> result) {
+    public void setResult(currencyRates result) {
         Result = result;
     }
 }

@@ -6,4 +6,6 @@ public interface ConverterPresenter {
 
     void getRates();
 
+    double calculateAmount(String amount, String targetCurrency);
+
 }

@@ -1,6 +1,10 @@
-package cheliotd.com.my_calculator_app.Converter;
+package cheliotd.com.my_calculator_app.Converter.presentation;
 
-import java.util.HashMap;
+import cheliotd.com.my_calculator_app.Converter.data.ConverterInteractorImpl;
+import cheliotd.com.my_calculator_app.Converter.domain.ConverterInteractor;
+import cheliotd.com.my_calculator_app.Converter.domain.ConverterPresenter;
+import cheliotd.com.my_calculator_app.Converter.domain.ConverterView;
+import cheliotd.com.my_calculator_app.Converter.domain.currencyRates;
 
 public class ConverterPresenterImpl implements ConverterPresenter, ConverterInteractor.OnRatesFinishListener {
 
@@ -17,15 +21,10 @@ public class ConverterPresenterImpl implements ConverterPresenter, ConverterInte
         interactor.getCurrencyRates(this);
     }
 
-    @Override
-    public double calculateAmount(String amount, String targetCurrency) {
-        return interactor.getConvertedResult(amount, targetCurrency);
-    }
-
 
     @Override
-    public void onSuccess(HashMap<String, Double> currencies) {
-        view.loadSpinnerData(currencies);
+    public void onSuccess(currencyRates rates) {
+        view.loadSpinnerData(rates);
     }
 
     @Override

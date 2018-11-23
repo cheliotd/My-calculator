@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import cheliotd.com.my_calculator_app.Calculator.CalculatorFragment;
-import cheliotd.com.my_calculator_app.Converter.ConverterFragment;
+import cheliotd.com.my_calculator_app.Converter.presentation.ConverterFragment;
 import cheliotd.com.my_calculator_app.R;
 
 public class MainActivity extends AppCompatActivity implements MainView {

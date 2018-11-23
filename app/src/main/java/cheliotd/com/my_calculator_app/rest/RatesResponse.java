@@ -1,21 +1,21 @@
 package cheliotd.com.my_calculator_app.rest;
 
-import cheliotd.com.my_calculator_app.Converter.currencyRates;
+import cheliotd.com.my_calculator_app.Converter.domain.currencyRates;
 
 public class RatesResponse {
 
 
-    private currencyRates Result;
+    private currencyRates rates;
 
-    public RatesResponse(currencyRates result) {
-        Result = result;
+    public RatesResponse(currencyRates rates) {
+        this.rates = rates;
     }
 
-    public currencyRates getResult() {
-        return Result;
+    public currencyRates getRates() {
+        return rates;
     }
 
-    public void setResult(currencyRates result) {
-        Result = result;
+    public void setRates(currencyRates rates) {
+        this.rates = rates;
     }
 }

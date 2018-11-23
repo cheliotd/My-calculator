@@ -1,4 +1,4 @@
-package cheliotd.com.my_calculator_app.Converter;
+package cheliotd.com.my_calculator_app.Converter.presentation;
 
 
 import android.os.Bundle;
@@ -13,12 +13,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnItemSelected;
+import cheliotd.com.my_calculator_app.Converter.domain.ConverterPresenter;
+import cheliotd.com.my_calculator_app.Converter.domain.ConverterView;
+import cheliotd.com.my_calculator_app.Converter.domain.currencyRates;
 import cheliotd.com.my_calculator_app.R;
 import cheliotd.com.my_calculator_app.base.MainView;
 
@@ -37,8 +39,8 @@ public class ConverterFragment extends Fragment implements ConverterView {
     @BindView(R.id.target_currency_amount)
     TextView convertedResult;
 
-    private int targetCurrency;
-
+    String targetCurrency;
+    Double targetRate;
     ConverterPresenter presenter;
 
 
@@ -74,16 +76,16 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
 
     @Override
-    public void loadSpinnerData(final HashMap<String, Double> currencies) {
+    public void loadSpinnerData(final currencyRates rates) {
 
-        final ArrayList<String> countries = new ArrayList<>(currencies.keySet());
+        final ArrayList<String> currencies = new ArrayList(rates.getCurrencyRates().keySet());
 
         getActivity().runOnUiThread(new Runnable() {
 
             ArrayAdapter<String> adapter = new ArrayAdapter(
                     getContext(),
                     android.R.layout.simple_spinner_item,
-                    countries
+                    currencies
             );
 
             @Override
@@ -96,9 +98,11 @@ public class ConverterFragment extends Fragment implements ConverterView {
         mTargetCurrencySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String targetCurrency = String.valueOf(parent.getItemAtPosition(position));
+                targetCurrency = String.valueOf(parent.getItemAtPosition(position));
+
+                targetRate = rates.getCurrencyRates().get(targetCurrency);
                 String amount= mAmountEditText.getText().toString();
-                calculateResult(amount, targetCurrency);
+                calculateResult(amount, targetRate);
             }
 
             @Override
@@ -110,10 +114,12 @@ public class ConverterFragment extends Fragment implements ConverterView {
 
 
     @Override
-    public void calculateResult(String amount, String targetCurrency) {
+    public void calculateResult(String amount, double targetRate) {
 
-        double finalAmount = presenter.calculateAmount(amount, targetCurrency);
-        convertedResult.setText(String.valueOf(finalAmount));
+        DecimalFormat df = new DecimalFormat("#.#####");
+        double result = Double.valueOf(df.format(Double.parseDouble(amount) / targetRate));
+
+        convertedResult.setText(String.valueOf(result));
     }
 
 

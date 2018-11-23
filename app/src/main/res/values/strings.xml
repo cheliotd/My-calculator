@@ -24,6 +24,8 @@
 
     <string name="currencyconverter">Convert currency</string>
     <string name="converter_button">CONVERT</string>
+    <string name="choose_currency_prompt">Please choose a currency</string>
+    <string name="result">Converted Amount</string>
     <string name="euro_sign">€</string>
 
     <string name="on_network_error">Oops something went wrong! Check your internet connection</string>
